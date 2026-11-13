@@ -29,4 +29,12 @@ If you configured this integration in your {% term "`configuration.yaml`" %} fil
 
 The binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 
+Every zone the NX584 server reports is added as a binary sensor. A zone shows as an opening by default. To show a zone as a different type, such as motion, select the type from the **Show as** menu in the [entity settings](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity).
+
+If Home Assistant imported your YAML configuration:
+
+- A zone listed in `exclude_zones` is added as a [disabled entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). To use the zone, enable its entity.
+- A type set in `zone_types` is the default type of the zone. A type you select from **Show as** takes precedence.
+- Removing a zone from `exclude_zones` doesn't enable its entity again. Enable the entity from its settings.
+
 {% include integrations/actions.md %}
